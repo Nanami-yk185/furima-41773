@@ -44,20 +44,21 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column        | Type       | Options                |
-| ------        | ------     | -----------            |
-| name          | string     | null: false, limit: 40 |
-| discription   | text       | null: false            |
-| category      | integer    | null: false            |
-| status        | integer    | null: false            |
-| shipping_fee  | integer    | null: false            |
-| prefecture    | integer    | null: false            |
-| shipping_days | integer    | null: false            |
-| price         | integer    | null: false            |
+| Column           | Type       | Options                        |
+| ------           | ------     | -----------                    |
+| name             | string     | null: false, limit: 40         |
+| discription      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| status_id        | integer    | null: false                    |
+| shipping_fee_id  | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| shipping_days_id | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false,foreign_key: true  |
 
 ### Association
 
-- has_many :orders
+- has_one :order
 - belongs_to :user
 
 ## Orders テーブル
@@ -65,11 +66,13 @@ Things you may want to cover:
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | item   | references | null: false,foreign_key: true  |
+| user   | references | null: false,foreign_key: true  |
 
 ### Association
 
+- has_one :address
 - belongs_to :item
-- belongs_to :address
+- belongs_to :user
 
 ## Addresses テーブル
 
@@ -79,7 +82,7 @@ Things you may want to cover:
 | prefecture  |string      | null: false                    |
 | city        |string      | null: false                    |
 | address     |string      | null: false                    |
-| building    |string      | null: false                    |
+| building    |string      |                                |
 | phone_number|string      | null: false                    |
 | user        |references  | null: false, foreign_key: true |
 
