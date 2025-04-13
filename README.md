@@ -32,51 +32,54 @@ Things you may want to cover:
 | email              | string | null: false,unique: true |
 | encrypted_password | string | null: false              |
 | last_name          | string | null: false              |
-| first_name         | string | null: false              |
+| last_name          | string | null: false              |
+| first_name_kana    | string | null: false              |
+| first_name_kana    | string | null: false              |
 | birth_date         | date   | null: false              |
 
 ### Association
 
-- has_many :item
-- has_many :order
+- has_many :items
+- has_many :orders
 
 ## items テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-| title  | string     | null: false                    |
-| image  | string     | null: false                    |
-| price  | integer    | null: false                    |
+| Column        | Type       | Options                |
+| ------        | ------     | -----------            |
+| name          | string     | null: false, limit: 40 |
+| discription   | text       | null: false            |
+| category      | integer    | null: false            |
+| status        | integer    | null: false            |
+| shipping_fee  | integer    | null: false            |
+| prefecture    | integer    | null: false            |
+| shipping_days | integer    | null: false            |
+| price         | integer    | null: false            |
 
 ### Association
 
-- has_many :room_users
-- has_many :users, through: :room_users
-- has_many :messages
+- has_many :orders
+- belongs_to :user
 
 ## Orders テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | item   | references | null: false,foreign_key: true  |
-| user   | references | null: false,foreign_key: true  |
-
 
 ### Association
 
 - belongs_to :item
-- belongs_to :user
+- belongs_to :address
 
 ## Addresses テーブル
 
 | Column      | Type       | Options                        |
 | -------     | ---------- | ------------------------------ |
 | postal_code |string      | null: false                    |
-| activehash  |string      | null: false                    |
+| prefecture  |string      | null: false                    |
 | city        |string      | null: false                    |
-| line1       |string      | null: false                    |
-| line2       |string      | null: false                    |
+| address     |string      | null: false                    |
+| building    |string      | null: false                    |
 | phone_number|string      | null: false                    |
 | user        |references  | null: false, foreign_key: true |
 
