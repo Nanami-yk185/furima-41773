@@ -26,25 +26,28 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| password           | string | null: false |
-| last_name          | string | null: false |
-| first_name         | string | null: false |
-| birth_date         | date   | null: false |
+| Column             | Type   | Options                  |
+| ------------------ | ------ | -----------              |
+| nickname           | string | null: false              |
+| email              | string | null: false,unique: true |
+| encrypted_password | string | null: false              |
+| last_name          | string | null: false              |
+| first_name         | string | null: false              |
+| birth_date         | date   | null: false              |
 
 ### Association
 
-- has_many :items
-- has_many :orders
+- has_many :item
+- has_many :order
 
 ## items テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name   | string | null: false |
+| title  | string     | null: false                    |
+| image  | string     | null: false                    |
+| price  | integer    | null: false                    |
 
 ### Association
 
@@ -58,26 +61,24 @@ Things you may want to cover:
 | ------ | ---------- | ------------------------------ |
 | item   | references | null: false,foreign_key: true  |
 | user   | references | null: false,foreign_key: true  |
-| title  | string     | null: false                    |
-| image  | string     | null: false                    |
-| price  | integer    | null: false                    |
+
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 - belongs_to :user
 
-## Address テーブル
+## Addresses テーブル
 
 | Column      | Type       | Options                        |
 | -------     | ---------- | ------------------------------ |
 | postal_code |string      | null: false                    |
-| prefecture  |string      | null: false                    |
+| activehash  |string      | null: false                    |
 | city        |string      | null: false                    |
 | line1       |string      | null: false                    |
 | line2       |string      | null: false                    |
 | phone_number|string      | null: false                    |
-t.references :user, null: false, foreign_key: true
+| user        |references  | null: false, foreign_key: true |
 
 ### Association
 
