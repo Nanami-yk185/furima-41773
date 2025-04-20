@@ -66,6 +66,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem "debug", platforms: %i[ mri windows ]
+  gem "faker"
 end
 
 group :development do
