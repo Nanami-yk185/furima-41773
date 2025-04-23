@@ -26,31 +26,31 @@ RSpec.describe Item, type: :model do
       end
 
       it 'category_idが1だと無効' do
-        @item.category_id = nil
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors[:category_id]).to include("can't be blank")
       end
 
       it 'status_idが1だと無効' do
-        @item.status_id = nil
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors[:status_id]).to include("can't be blank")
       end
 
       it 'shipping_fee_idが1だと無効' do
-        @item.shipping_fee_id = nil
+        @item.shipping_fee_id = 1
         @item.valid?
         expect(@item.errors[:shipping_fee_id]).to include("can't be blank")
       end
 
       it 'prefecture_idが1だと無効' do
-        @item.prefecture_id = nil
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors[:prefecture_id]).to include("can't be blank")
       end
 
       it 'shipping_day_idが1だと無効' do
-        @item.shipping_day_id = nil
+        @item.shipping_day_id = 1
         @item.valid?
         expect(@item.errors[:shipping_day_id]).to include("can't be blank")
       end

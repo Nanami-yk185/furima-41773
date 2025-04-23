@@ -1,13 +1,9 @@
-window.addEventListener('turbo:load', () => {
-
+  const price = () => {
   const priceInput = document.getElementById("item-price");
-  console.log("priceInput",priceInput);
   
   if (priceInput) {
   priceInput.addEventListener("input", () => {
-  console.log("イベント発火");
   const inputValue = priceInput.value;
-  console.log(inputValue);
 
   const addTaxDom = document.getElementById("add-tax-price");
   const profitDom = document.getElementById("profit");
@@ -17,7 +13,7 @@ window.addEventListener('turbo:load', () => {
   profitDom.innerHTML = `${profit}円`;
     });
   }
-});
+};
 
 window.addEventListener("turbo:load", price);
 window.addEventListener("turbo:render", price);
