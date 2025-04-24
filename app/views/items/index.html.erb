@@ -1,34 +1,3 @@
-<!--
-<h1>商品一覧</h1>
-<%= link_to "出品する", new_item_path, class: "post" %>
-
-  <% @items.each do |item| %>
-  <div class="item">
-    <div class="item-category">
-      カテゴリ：<%= item.category.name %>
-    </div>
-    <div class="item-status">
-      商品の状態：<%= item.status.name %>
-    </div>
-    <div class="item-shipping-fee">
-      配送料の負担：<%= item.shipping_fee.name %>
-    </div>
-    <div class="item-prefecture">
-      発送元の地域：<%= item.prefecture.name %>
-    </div>
-    <div class="item-shipping-day">
-      発送までの日数：<%= item.shipping_day.name %>
-    </div>
-    <div class="item-name">
-      <%= item.name %>
-    </div>
-    <div class="item-description">
-      <%= item.description %>
-    </div>
-  </div>
-<% end %> 
--->
-
 <%= render "shared/header" %>
 <div class='main'>
 
