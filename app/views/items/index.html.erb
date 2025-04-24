@@ -1,4 +1,8 @@
-<% @items.each do |item| %>
+<!--
+<h1>商品一覧</h1>
+<%= link_to "出品する", new_item_path, class: "post" %>
+
+  <% @items.each do |item| %>
   <div class="item">
     <div class="item-category">
       カテゴリ：<%= item.category.name %>
@@ -22,8 +26,8 @@
       <%= item.description %>
     </div>
   </div>
-<% end %>
-
+<% end %> 
+-->
 
 <%= render "shared/header" %>
 <div class='main'>
