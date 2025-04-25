@@ -9,8 +9,8 @@
   const profitDom = document.getElementById("profit");
   const tax = Math.floor(inputValue * 0.1);
   const profit = Math.floor(inputValue - tax);
-  addTaxDom.innerHTML = `${tax}円`;
-  profitDom.innerHTML = `${profit}円`;
+  addTaxDom.innerHTML = tax;
+  profitDom.innerHTML = profit;
     });
   }
 };
