@@ -7,8 +7,5 @@ FactoryBot.define do
     building_name { 'Shibuya Building' }
     phone_number { '08012345678' }
     token { 'tok_abcdefghijk00000000000000000' }
-
-    user_id { create(:user).id }
-    item_id { create(:item).id }
   end
 end
